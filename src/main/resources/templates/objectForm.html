@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Business Object Form</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Business Object Form</h1>
+<form th:object="${object}" th:action="@{/object}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{name}" />
+    <label for="description">Description:</label>
+    <input type="text" id="description" th:field="*{description}" />
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

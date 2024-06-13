@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Business Object List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Business Object List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="object : ${objects}">
+        <td th:text="${object.id}">1</td>
+        <td th:text="${object.name}">Name</td>
+        <td th:text="${object.description}">Description</td>
+        <td>
+            <a th:href="@{'/object/edit/' + ${object.id}}">Edit</a>
+            <a th:href="@{'/object/delete/' + ${object.id}}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="center">
+    <a href="/object/new"><button>Create New Object</button></a>
+</div>
+</body>
+</html>
